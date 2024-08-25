@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World!</title>
     <style>
-        .wrapper{
+        html,
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .box{
+        .box {
+            cursor: pointer;
             padding: 24px;
             background-color: #333;
+            border-radius: 0.2rem;
         }
 
-        .message{
-            font-size: 2rem;
+        .message {
+            text-decoration: none;
+            font-size: 1.8rem;
             color: #eee;
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
+
 <body>
     <div class="wrapper">
-        <div class="box">
-            <span class="message">I can center div</span>
-        </div>
+        <a href="https://github.com/kyawnyeinphyo">
+            <div class="box">
+                <span class="message">I can center div</span>
+            </div>
+        </a>
     </div>
 </body>
+
 </html>

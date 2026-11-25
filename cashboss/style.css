@@ -1,0 +1,117 @@
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  font-family: "Noto Sans Myanmar", "Myanmar Text", "Padauk", system-ui, sans-serif;
+  color: #fff;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.012) 0 2px, transparent 2px 4px),
+    radial-gradient(ellipse at 50% 35%, #3a3a3d 0%, #1c1c1e 65%, #0a0a0b 100%);
+}
+
+#c {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: block;
+  touch-action: none;
+}
+
+.hud {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: calc(env(safe-area-inset-top) + 12px) 16px 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+.hud .item { display: flex; flex-direction: column; line-height: 1.2; }
+.hud .item.big { flex: 1; }
+.hud .lbl { font-size: 12px; opacity: .75; }
+.hud b { font-size: 20px; font-variant-numeric: tabular-nums; }
+.hud .big b { font-size: 30px; color: #ffe27a; }
+.hud .unit { font-size: 12px; opacity: .75; }
+
+.hint {
+  position: fixed;
+  left: 0; right: 0;
+  top: 15%;
+  text-align: center;
+  font-size: 15px;
+  pointer-events: none;
+  text-shadow: 0 1px 4px rgba(0,0,0,.6);
+  transition: opacity .3s;
+}
+.hint.gone { opacity: 0; }
+.hint .hand {
+  position: fixed;
+  left: 50%;
+  bottom: 18%;
+  margin-left: -28px;
+  font-size: 56px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.5));
+  animation: drag 2.2s ease-in-out infinite;
+}
+@keyframes drag {
+  0%   { transform: translateY(30px) scale(1.1); opacity: 0; }
+  15%  { transform: translateY(0) scale(1.1); opacity: 1; }
+  25%  { transform: translateY(0) scale(.88); opacity: 1; }
+  75%  { transform: translateY(-200px) scale(.88); opacity: 1; }
+  88%  { transform: translateY(-210px) scale(1.1); opacity: 0; }
+  100% { transform: translateY(-210px) scale(1.1); opacity: 0; }
+}
+
+#mute {
+  position: fixed;
+  right: 12px;
+  bottom: calc(env(safe-area-inset-bottom) + 12px);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 20px;
+}
+
+.overlay {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.55);
+  transition: opacity .3s;
+}
+.overlay.hidden { opacity: 0; pointer-events: none; }
+.card {
+  background: #fff;
+  color: #1b3a28;
+  border-radius: 20px;
+  padding: 28px 32px;
+  text-align: center;
+  width: min(86vw, 340px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.5);
+}
+.card .title { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+.card .total { font-size: 28px; margin-bottom: 4px; }
+.card .total b { color: #c98a00; }
+.card .sub { opacity: .7; margin-bottom: 20px; }
+.card button {
+  font: inherit;
+  font-size: 17px;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 28px;
+  background: #1f7a4a;
+  color: #fff;
+}
+.card button:active { transform: scale(.96); }
